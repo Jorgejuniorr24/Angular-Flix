@@ -1,0 +1,56 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { catchError } from 'rxjs/operators';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  private apiUrl = 'http://localhost:3000/auth';  // Altere para a URL da sua API
+
+  constructor(private http: HttpClient, private router: Router) {}
+
+  // Método de login
+  login(email: string, password: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}/login`, { email, password }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Método de login com Google (exemplo)
+  loginWithGoogle(): Observable<any> {
+    // Lógica para login com Google
+    return this.http.get(`${this.apiUrl}/google-login`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Método de login com Facebook (exemplo)
+  loginWithFacebook(): Observable<any> {
+    // Lógica para login com Facebook
+    return this.http.get(`${this.apiUrl}/facebook-login`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  // Método de logout
+  logout(): void {
+    // Lógica para limpar os dados de autenticação
+    localStorage.removeItem('user');
+    this.router.navigate(['/login']);
+  }
+
+  // Verificar se o usuário está autenticado
+  isAuthenticated(): boolean {
+    return !!localStorage.getItem('user');
+  }
+
+  // Tratar erros
+  private handleError(error: any): Observable<never> {
+    // Você pode personalizar o tratamento de erro aqui
+    console.error(error);
+    throw error;  // Re-throw the error
+  }
+}

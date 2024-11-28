@@ -1,0 +1,133 @@
+/* Estilo geral */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #20232a;
+  color: white;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-bar {
+  display: flex;
+  gap: 10px;
+}
+
+.search-bar input {
+  padding: 5px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 3px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  font-size: 1rem;
+  background-color: #61dafb;
+  color: #20232a;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.container {
+  padding: 20px;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.card-content {
+  padding: 10px;
+}
+
+.card-content h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.card-content p {
+  font-size: 0.8rem;
+  color: gray;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .search-bar input {
+    flex: 1;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .container h1 {
+    font-size: 1.5rem;
+  }
+
+  .card-content h3 {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header {
+    padding: 10px;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .search-bar input {
+    font-size: 0.9rem;
+  }
+
+  .search-bar button {
+    font-size: 0.9rem;
+  }
+
+  .card-content p {
+    font-size: 0.7rem;
+  }
+}
