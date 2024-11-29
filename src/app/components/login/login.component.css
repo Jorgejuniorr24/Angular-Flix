@@ -1,0 +1,62 @@
+.login-container {
+  width: 300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-facebook {
+  background-color: #3b5998;
+  color: white;
+}
+
+.btn-google {
+  background-color: #db4437;
+  color: white;
+}
+
+.separator {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #888;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.btn-login {
+  background-color: #000;
+  color: white;
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoService } from '../services/video.service';
-import { AuthService } from '../services/auth.service';
-import { Video } from '../models/video.model';
+import { VideoService } from '../services/video.service.ts';  // Caminho corrigido
+import { AuthService } from '../services/auth.service';    // Caminho corrigido
+import { Video } from '../models/video.model';             // Caminho corrigido
 
 @Component({
   selector: 'app-favorites',
@@ -9,11 +9,11 @@ import { Video } from '../models/video.model';
   styleUrls: ['./favorites.component.css']
 })
 export class FavoritesComponent implements OnInit {
-  favoriteVideos: Video[];
+  favoriteVideos: Video[] = [];  // Inicializado como um array vazio
 
   constructor(
-    private videoService: VideoService,
-    private authService: AuthService
+    private videoService: VideoService,  // Injeção do serviço VideoService
+    private authService: AuthService    // Injeção do serviço AuthService
   ) { }
 
   ngOnInit() {

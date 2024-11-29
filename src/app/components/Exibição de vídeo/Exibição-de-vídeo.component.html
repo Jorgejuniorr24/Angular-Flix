@@ -1,0 +1,7 @@
+<div *ngIf="video" class="video-detail">
+  <h1>{{ video.title }}</h1>
+  <img [src]="video.thumbnail" [alt]="video.title" />
+  <p>{{ video.description }}</p>
+  <p>Visualizações: {{ video.views | number }}</p>
+  <p>Publicado em: {{ video.uploadedAt | date:'medium' }}</p>
+</div>

@@ -1,32 +1,11 @@
 <div class="header">
-  <div class="logo">AngularFlix</div>
+  <div class="logo">
+    <a routerLink="/" style="text-decoration: none; color: inherit;">AngularFlix</a>
+  </div>
   <div class="search-bar">
     <input type="text" placeholder="Pesquisar vídeos..." />
     <button>🔍</button>
   </div>
 </div>
 
-<div class="container">
-  <h1>Bem-vindo ao AngularFlix</h1>
-  <router-outlet></router-outlet>
-
-  <div class="videos">
-    <div class="card">
-      <img src="assets/video1-thumbnail.jpg" alt="Video 1 Thumbnail" />
-      <div class="card-content">
-        <h3>Vídeo 1</h3>
-        <p>Canal Angular</p>
-        <p class="views">100k visualizações • 1 semana atrás</p>
-      </div>
-    </div>
-    <div class="card">
-      <img src="assets/video2-thumbnail.jpg" alt="Video 2 Thumbnail" />
-      <div class="card-content">
-        <h3>Vídeo 2</h3>
-        <p>Canal TypeScript</p>
-        <p class="views">80k visualizações • 2 semanas atrás</p>
-      </div>
-    </div>
-    <!-- Adicione mais cards conforme necessário -->
-  </div>
-</div>
+<router-outlet></router-outlet>
