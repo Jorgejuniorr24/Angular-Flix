@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 export interface Video {
   id: number;
@@ -17,6 +17,7 @@ export interface Video {
 })
 export class VideosService {
   private apiUrl = 'http://localhost:3000/videos';
+  private favoriteVideos: Video[] = [];  // Simulação de vídeos favoritos
 
   constructor(private http: HttpClient) {}
 
@@ -26,5 +27,17 @@ export class VideosService {
 
   getVideoById(id: number): Observable<Video> {
     return this.http.get<Video>(`${this.apiUrl}/${id}`);
+  }
+
+  // Métodos para obter e remover vídeos favoritos
+  getFavoriteVideos(userId: string): Observable<Video[]> {
+    // Simulação: Retornar todos os vídeos como favoritos
+    return of(this.favoriteVideos);
+  }
+
+  removeFavorite(userId: string, videoId: number): Observable<void> {
+    // Simulação: Remover vídeo favorito
+    this.favoriteVideos = this.favoriteVideos.filter(video => video.id !== videoId);
+    return of();
   }
 }

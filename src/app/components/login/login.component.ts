@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../authentication/services/auth.service'; // Caminho corrigido
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -29,39 +29,15 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      this.authService.login(
-        this.loginForm.get('email')?.value || '',
-        this.loginForm.get('password')?.value || ''
-      ).subscribe(
-        () => {
-          this.router.navigate(['/']);
-        },
-        (error: any) => {
-          this.errorMessage = error.message;
-        }
-      );
+      // Lógica de autenticação com email e senha
     }
   }
 
   loginWithGoogle() {
-    this.authService.loginWithGoogle().subscribe(
-      () => {
-        this.router.navigate(['/']);
-      },
-      (error: any) => {
-        this.errorMessage = error.message;
-      }
-    );
+    this.authService.loginWithGoogle();
   }
 
   loginWithFacebook() {
-    this.authService.loginWithFacebook().subscribe(
-      () => {
-        this.router.navigate(['/']);
-      },
-      (error: any) => {
-        this.errorMessage = error.message;
-      }
-    );
+    this.authService.loginWithFacebook();
   }
 }

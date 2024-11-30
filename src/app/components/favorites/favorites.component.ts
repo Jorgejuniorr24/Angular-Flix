@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { VideoService } from '../services/video.service.ts';  // Caminho corrigido
-import { AuthService } from '../services/auth.service';    // Caminho corrigido
-import { Video } from '../models/video.model';             // Caminho corrigido
+import { CommonModule } from '@angular/common';
+import { VideosService, Video } from '../../authentication/services/video.service';  // Caminho correto para VideosService e Video
+import { AuthService } from '../../authentication/services/auth.service';    // Caminho correto para AuthService
 
 @Component({
   selector: 'app-favorites',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './favorites.component.html',
   styleUrls: ['./favorites.component.css']
 })
@@ -12,7 +14,7 @@ export class FavoritesComponent implements OnInit {
   favoriteVideos: Video[] = [];  // Inicializado como um array vazio
 
   constructor(
-    private videoService: VideoService,  // Injeção do serviço VideoService
+    private videoService: VideosService,  // Injeção do serviço VideosService
     private authService: AuthService    // Injeção do serviço AuthService
   ) { }
 
@@ -21,16 +23,24 @@ export class FavoritesComponent implements OnInit {
   }
 
   getFavoriteVideos() {
-    const userId = this.authService.getUserId();
-    this.videoService.getFavoriteVideos(userId).subscribe(videos => {
-      this.favoriteVideos = videos;
+    this.authService.getUser$().subscribe(user => {
+      const userId = user?.sub || '';  // Garantir que userId é uma string válida
+      if (userId) {
+        this.videoService.getFavoriteVideos(userId).subscribe((videos: Video[]) => {
+          this.favoriteVideos = videos;
+        });
+      }
     });
   }
 
-  removeFavorite(videoId: string) {
-    const userId = this.authService.getUserId();
-    this.videoService.removeFavorite(userId, videoId).subscribe(() => {
-      this.getFavoriteVideos();
+  removeFavorite(videoId: number) {  // Alterado para number
+    this.authService.getUser$().subscribe(user => {
+      const userId = user?.sub || '';  // Garantir que userId é uma string válida
+      if (userId) {
+        this.videoService.removeFavorite(userId, videoId).subscribe(() => {
+          this.getFavoriteVideos();
+        });
+      }
     });
   }
 }

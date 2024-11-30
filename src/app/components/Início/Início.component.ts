@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VideosService, Video } from '../services/video.service';
+import { VideosService, Video } from '../../authentication/services/video.service';
 import { RouterModule } from '@angular/router';
 
 @Component({

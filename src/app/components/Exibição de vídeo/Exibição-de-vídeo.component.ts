@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { VideosService, Video } from '../services/video.service';
+import { VideosService, Video } from '../../authentication/services/video.service';
 
 @Component({
   selector: 'app-exibicao-de-video',
