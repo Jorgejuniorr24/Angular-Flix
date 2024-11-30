@@ -9,10 +9,12 @@ Este projeto foi gerado utilizando o [Angular CLI](https://github.com/angular/an
 ---
 
 ## Instruções de Desenvolvimento
+npm i para instalar as dependências de um projeto gerenciadas pelo Node Package Manager (npm).
+ng serve ou ng s para rodar o servidor de desenvolvimento
 
 ### Servidor de Desenvolvimento
+Execute ng serve para iniciar o servidor de desenvolvimento. Navegue para http://localhost:4200/. A aplicação será recarregada automaticamente se você alterar qualquer um dos arquivos fonte.
 
-Para iniciar um servidor de desenvolvimento local, execute o seguinte comando:
 
 ```bash
 ng serve
