@@ -4,6 +4,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f9f9f9;
+  color: #333; /* Mudando a cor do texto para um tom de cinza mais profissional */
 }
 
 .header {
@@ -11,14 +12,15 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: #20232a;
-  color: white;
+  background-color: #f4f4f4; /* Mesma cor da sidebar */
+  color: #000; /* Cor do texto do logo para preto */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Adiciona sombra para destaque */
 }
 
 .logo a {
   font-size: 1.5rem;
   font-weight: bold;
-  color: white;
+  color: #212529; /* Troca a cor do texto do logo para #212529 */
   text-decoration: none;
 }
 
@@ -28,23 +30,49 @@ body {
 
 .search-bar {
   display: flex;
+  align-items: center;
   gap: 10px;
+  flex: 0.5; /* Reduzindo a largura da barra de pesquisa pela metade */
+  margin: 0 20px;
 }
 
-.search-bar input {
-  padding: 5px;
+.search-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px 0 0 3px;
   font-size: 1rem;
-  border: none;
-  border-radius: 3px;
+  outline: none;
 }
 
-.search-bar button {
-  padding: 5px 10px;
+.search-button {
+  padding: 10px 20px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.search-button mat-icon {
+  font-size: 1.2rem; /* Aumentando o tamanho do ícone */
+  color: #333;
+}
+
+.search-button:hover {
+  background-color: #e8e8e8;
+}
+
+.logout {
+  display: flex;
+  align-items: center;
+}
+
+.logout button {
+  padding: 10px 20px;
   font-size: 1rem;
-  background-color: #61dafb;
-  color: #20232a;
-  border: none;
-  border-radius: 3px;
   cursor: pointer;
 }
 
@@ -60,14 +88,15 @@ body {
 
 .card {
   background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .card img {
@@ -76,17 +105,17 @@ body {
 }
 
 .card-content {
-  padding: 10px;
+  padding: 15px;
 }
 
 .card-content h3 {
-  font-size: 1rem;
+  font-size: 1.2rem;
   margin: 0;
 }
 
 .card-content p {
-  font-size: 0.8rem;
-  color: gray;
+  font-size: 0.9rem;
+  color: #666;
 }
 
 /* Media Queries para Responsividade */
@@ -101,10 +130,16 @@ body {
     margin-top: 10px;
   }
 
-  .search-bar input {
-    flex: 1;
+  .search-input {
     width: 100%;
-    margin-right: 0;
+  }
+
+  .search-button {
+    width: 100%;
+  }
+
+  .logout {
+    margin-top: 10px;
   }
 
   .container h1 {
@@ -112,7 +147,7 @@ body {
   }
 
   .card-content h3 {
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
 }
 
@@ -125,15 +160,15 @@ body {
     font-size: 1.2rem;
   }
 
-  .search-bar input {
+  .search-input {
     font-size: 0.9rem;
   }
 
-  .search-bar button {
+  .search-button {
     font-size: 0.9rem;
   }
 
   .card-content p {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
   }
 }

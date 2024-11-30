@@ -1,11 +1,17 @@
 <div class="header">
   <div class="logo">
-    <a routerLink="/" style="text-decoration: none; color: inherit;">AngularFlix</a>
+    <a routerLink="/home" style="text-decoration: none; color: inherit;">
+      <span>AngularFlix</span>
+    </a>
   </div>
   <div class="search-bar">
-    <input type="text" placeholder="Pesquisar vídeos..." />
-    <button>🔍</button>
+    <input type="text" placeholder="Pesquisar" class="search-input" />
+    <button class="search-button">
+      <mat-icon>search</mat-icon>
+    </button>
   </div>
-  <button (click)="logout()" mat-button>Logout</button> <!-- Adicionando botão de logout -->
+  <div class="logout">
+    <button mat-button routerLink="/logout">Logout</button>
+  </div>
 </div>
 <router-outlet></router-outlet>

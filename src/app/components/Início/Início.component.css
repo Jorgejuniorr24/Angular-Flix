@@ -1,55 +1,66 @@
-
-styles.css
 .container {
   display: flex;
+  height: 100vh; /* Define a altura da tela inteira */
 }
+
 .sidebar {
   width: 200px;
   padding: 20px;
   background-color: #f4f4f4;
+  height: 100vh; /* Estende a sidebar até o fim da tela */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Adiciona uma sombra para dar destaque */
 }
+
 .sidebar ul {
   list-style: none;
   padding: 0;
 }
+
 .sidebar ul li {
   margin-bottom: 10px;
 }
+
 .sidebar ul li button {
   display: flex;
   align-items: center;
   width: 100%;
   justify-content: flex-start;
 }
+
 .sidebar ul li button .mat-icon {
   margin-right: 10px;
 }
+
 .main-content {
   flex: 1;
   padding: 20px;
+  background-color: #ffffff; /* Fundo branco para o conteúdo principal */
+  overflow-y: auto; /* Permite rolar o conteúdo principal se necessário */
 }
-.search-bar {
-  margin-bottom: 20px;
-}
+
 .videos {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
+
 .card {
   width: calc(33.333% - 20px);
   border: 1px solid #ddd;
   border-radius: 8px;
   overflow: hidden;
 }
+
 .card img {
   width: 100%;
   height: 150px;
   object-fit: cover;
 }
+
 .card-content {
   padding: 15px;
 }
+
 .views {
   color: #888;
   font-size: 14px;

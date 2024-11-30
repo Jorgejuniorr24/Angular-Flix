@@ -28,9 +28,6 @@
     </ul>
   </div>
   <div class="main-content">
-    <div class="search-bar">
-      <input matInput type="text" placeholder="Search Videos" />
-    </div>
     <div class="videos">
       <div *ngFor="let video of videos" class="card">
         <img [src]="video.thumbnail" [alt]="video.title" />
@@ -47,4 +44,3 @@
     </div>
   </div>
 </div>
-
