@@ -1,24 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { VideosService, Video } from '../../authentication/services/video.service';
-import { RouterModule } from '@angular/router';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { VideosService, Video } from '../../authentication/services/video.service'; // Importando VideosService e Video
+import { RouterModule } from '@angular/router'; // Importando RouterModule
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, MatIconModule, MatButtonModule, MatInputModule, RouterModule], // Adicionando RouterModule aos imports
   templateUrl: './Início.component.html',
   styleUrls: ['./Início.component.css']
 })
 export class HomeComponent implements OnInit {
-  videos: Video[] = [];
+  videos: Video[] = []; // Adicionando a propriedade videos
 
-  constructor(private videosService: VideosService) {}
+  constructor(private videoService: VideosService) {}
 
   ngOnInit() {
-    this.videosService.getVideos().subscribe({
-      next: (videos) => this.videos = videos,
-      error: (err) => console.error('Erro ao carregar vídeos', err)
+    this.videoService.getVideos().subscribe((videos: Video[]) => {
+      this.videos = videos;
     });
   }
 }

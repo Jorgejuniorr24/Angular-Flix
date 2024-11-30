@@ -10,6 +10,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideAnimationsAsync(), // Corrigido para chamar apenas uma vez
-    authConfig, // Incluindo a configuração do Auth0
+    authConfig, provideAnimationsAsync(), // Incluindo a configuração do Auth0
   ]
 };

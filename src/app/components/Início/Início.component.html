@@ -1,15 +1,35 @@
 <div class="container">
   <div class="sidebar">
     <ul>
-      <li><a routerLink="/home" class="active">Início</a></li>
-      <li><a routerLink="/login">Login</a></li>
-      <li><a routerLink="/video-display">Exibição de Vídeo</a></li>
-      <li><a routerLink="/favorites">Favoritos</a></li>
+      <li>
+        <button mat-button routerLink="/home" class="active">
+          <mat-icon>home</mat-icon>
+          Início
+        </button>
+      </li>
+      <li>
+        <button mat-button routerLink="/login">
+          <mat-icon>person</mat-icon>
+          Login
+        </button>
+      </li>
+      <li>
+        <button mat-button routerLink="/video-display">
+          <mat-icon>movie</mat-icon>
+          Exibição de Vídeo
+        </button>
+      </li>
+      <li>
+        <button mat-button routerLink="/favorites">
+          <mat-icon>star</mat-icon>
+          Favoritos
+        </button>
+      </li>
     </ul>
   </div>
   <div class="main-content">
     <div class="search-bar">
-      <input type="text" placeholder="Search Videos" />
+      <input matInput type="text" placeholder="Search Videos" />
     </div>
     <div class="videos">
       <div *ngFor="let video of videos" class="card">
@@ -21,9 +41,10 @@
             {{ video.views | number }} visualizações •
             {{ video.uploadedAt | date:'mediumDate' }}
           </p>
-          <button [routerLink]="['/video', video.id]">Ver Detalhes</button>
+          <button mat-button color="primary" [routerLink]="['/video', video.id]">Ver Detalhes</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+
