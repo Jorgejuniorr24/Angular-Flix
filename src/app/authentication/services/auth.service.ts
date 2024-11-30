@@ -6,7 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  constructor(private auth0Service: Auth0Service) {}
+  private token: string | null = null;
+
+  constructor(private auth0Service: Auth0Service) {
+    this.auth0Service.idTokenClaims$.subscribe(claims => {
+      this.token = claims ? claims.__raw : null;
+    });
+  }
 
   loginWithGoogle() {
     this.auth0Service.loginWithRedirect({
@@ -40,5 +46,9 @@ export class AuthService {
 
   getUser$() {
     return this.auth0Service.user$;
+  }
+
+  getToken(): string | null {
+    return this.token;
   }
 }
