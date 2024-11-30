@@ -8,6 +8,9 @@ body {
 }
 
 .header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -77,7 +80,52 @@ body {
 }
 
 .container {
+  display: flex;
+  margin-top: 60px; /* Compensa a altura da navbar fixa */
   padding: 20px;
+}
+
+.sidebar {
+  position: fixed; /* Torna a sidebar fixa */
+  top: 60px; /* Compensa a altura da navbar fixa */
+  width: 220px;
+  padding: 20px;
+  background-color: #f4f4f4;
+  height: calc(100vh - 60px); /* Estende a sidebar até o fim da tela */
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Adiciona uma sombra para dar destaque */
+  overflow-y: auto; /* Adiciona barra de rolagem na sidebar se necessário */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px; /* Aumenta o espaçamento entre os itens */
+}
+
+.sidebar ul li button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-start;
+  padding: 12px; /* Aumenta o padding dos botões */
+  font-size: 16px; /* Aumenta o tamanho da fonte */
+}
+
+.sidebar ul li button .mat-icon {
+  font-size: 24px; /* Aumenta o tamanho dos ícones */
+  margin-right: 15px; /* Aumenta o espaçamento entre ícone e texto */
+  min-width: 30px; /* Garante que o ícone não seja cortado */
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffffff; /* Fundo branco para o conteúdo principal */
+  overflow-y: auto; /* Permite rolar o conteúdo principal se necessário */
+  margin-left: 240px; /* Compensa a largura da sidebar fixa */
 }
 
 .videos {
@@ -108,14 +156,9 @@ body {
   padding: 15px;
 }
 
-.card-content h3 {
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-.card-content p {
-  font-size: 0.9rem;
-  color: #666;
+.views {
+  color: #888;
+  font-size: 14px;
 }
 
 /* Media Queries para Responsividade */
@@ -142,6 +185,23 @@ body {
     margin-top: 10px;
   }
 
+  .container {
+    flex-direction: column;
+    margin-top: 80px; /* Compensa a altura da navbar fixa */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+    top: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+
   .container h1 {
     font-size: 1.5rem;
   }
@@ -160,15 +220,30 @@ body {
     font-size: 1.2rem;
   }
 
+  .search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
   .search-input {
-    font-size: 0.9rem;
+    width: 100%;
   }
 
   .search-button {
-    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .logout {
+    margin-top: 10px;
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .container h1 {
+    font-size: 1.2rem;
   }
 
   .card-content p {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 }
