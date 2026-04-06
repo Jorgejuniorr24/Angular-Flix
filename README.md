@@ -1,21 +1,56 @@
-# Angular-Flix
+# 🎬 Angular-Flix
 
-Projeto de uma plataforma de vídeos como o YouTube utilizando o framework Angular.
-
-## Sobre o Projeto
-
-Este projeto foi gerado utilizando o [Angular CLI](https://github.com/angular/angular-cli) na versão 19.0.1. Ele simula uma plataforma de vídeos com funcionalidades completas, incluindo navegação entre páginas e gerenciamento seguro de sessões.
+![Angular](https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript)
+![Angular CLI](https://img.shields.io/badge/Angular_CLI-19.0.1-DD0031?style=for-the-badge&logo=angular&logoColor=white)
 
 ---
 
-## Instruções de Desenvolvimento
-npm i para instalar as dependências de um projeto gerenciadas pelo Node Package Manager (npm).
-ng serve ou ng s para rodar o servidor de desenvolvimento
+## 📌 Sobre o Projeto
 
-### Servidor de Desenvolvimento
-Execute ng serve para iniciar o servidor de desenvolvimento. Navegue para http://localhost:4200/. A aplicação será recarregada automaticamente se você alterar qualquer um dos arquivos fonte.
+O **Angular-Flix** é uma plataforma de vídeos inspirada no YouTube, desenvolvida com **Angular 19**. O projeto simula uma plataforma completa com navegação entre páginas e gerenciamento seguro de sessões.
 
+---
 
+## 🚀 Tecnologias Utilizadas
+
+* 🔺 Angular 19 (Angular CLI 19.0.1)
+* 🔷 TypeScript
+* 📦 Node Package Manager (npm)
+
+---
+
+## 💻 Como Rodar o Projeto
+
+### 📥 Clonando o repositório
+```bash
+git clone https://github.com/seu-usuario/angular-flix.git
+```
+
+### 📦 Instalando dependências
+```bash
+cd angular-flix
+npm install
+```
+
+### ▶️ Rodando o projeto
 ```bash
 ng serve
 ```
+
+A aplicação estará disponível em:
+👉 http://localhost:4200
+
+> A aplicação recarrega automaticamente ao salvar qualquer arquivo fonte.
+
+---
+
+## 🚀 Deploy
+
+Em breve. O projeto será disponibilizado via **Vercel** ou **Netlify**.
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença **MIT**.
